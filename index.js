@@ -49,22 +49,6 @@ fs.readdirSync(eventsPath).forEach(file => {
   }
 });
 
-// Prefix Command Handler
-client.on('messageCreate', (message) => {
-  if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
-
-  const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/);
-  const commandName = args.shift().toLowerCase();
-
-  // Fetch the command and execute if exists
-  const command = client.commands.get(commandName);
-  if (command) {
-    command.execute(message, args);
-  }
-});
-
-client.on('messageCreate', automodLogic);
-
 // MongoDB connection with a modern console message
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -107,12 +91,27 @@ const deployCommands = async () => {
 client.once('ready', () => {
   console.log(`✅ Logged in as ${client.user.tag}`);
 
-  // Set the bot's status to "Goldie HQ"
+  // Set bot status
   client.user.setActivity('Goldie HQ', { type: 'PLAYING' });
 
   deployCommands();
 });
 
+// Prefix Command Handler
+client.on('messageCreate', (message) => {
+  if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
+
+  const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/);
+  const commandName = args.shift().toLowerCase();
+
+  // Fetch the command and execute if exists
+  const command = client.commands.get(commandName);
+  if (command) {
+    command.execute(message, args);
+  }
+});
+
+client.on('messageCreate', automodLogic);
+
 // Bot Login
-console.log(process.env.TOKEN);
 client.login(process.env.TOKEN);

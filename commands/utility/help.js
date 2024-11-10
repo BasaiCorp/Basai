@@ -37,7 +37,7 @@ module.exports = {
         url: botIcon,
       },
       fields: [
-        { name: '📌 __BOT INFO__', value: `> :arrow_right: Prefix: \`${process.env.PREFIX}\`\n> :arrow_right: Discord.js Version: \`v${require('discord.js').version}\`\n> :arrow_right: Running on Node: \`${process.versions.node}\`\n> :arrow_right: Owned by \`Basai Corporation\`` },
+        { name: '📌 __Bot Information__', value: `> :arrow_right: Developer: Prathmesh\n> :arrow_right: Username: @prathmesh_pro\n> :arrow_right: Owned by Basai Corporation\n> :arrow_right: Username: @basaicorporation` },
         { name: '📋 __Available Categories__', value: categories.map(cat => `> ${categoryEmojis[cat] || '❓'} ${cat.charAt(0).toUpperCase() + cat.slice(1)}`).join('\n') },
       ],
       footer: {
