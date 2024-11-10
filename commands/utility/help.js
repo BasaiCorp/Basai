@@ -15,7 +15,7 @@ const categoryEmojis = {
   ticket: '🎫',
   invites: '📩',
   utility: '🛠️',
-  information: '❓',
+  information: 'ℹ️',
 };
 
 module.exports = {
@@ -37,7 +37,7 @@ module.exports = {
         url: botIcon,
       },
       fields: [
-        { name: '📌 __BOT INFO__', value: `> :arrow_right: Prefix: \`${process.env.PREFIX}\`\n> :arrow_right: Devloper\`Prathmesh\`\n> :arrow_right: Owned By\`Basai Corporation\`` },
+        { name: '📌 __BOT INFO__', value: `> :arrow_right: Prefix: \`${process.env.PREFIX}\`\n> :arrow_right: Discord.js Version: \`v${require('discord.js').version}\`\n> :arrow_right: Running on Node: \`${process.versions.node}\`\n> :arrow_right: Owned by \`Basai Corporation\`` },
         { name: '📋 __Available Categories__', value: categories.map(cat => `> ${categoryEmojis[cat] || '❓'} ${cat.charAt(0).toUpperCase() + cat.slice(1)}`).join('\n') },
       ],
       footer: {

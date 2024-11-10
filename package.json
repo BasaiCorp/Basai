@@ -1,12 +1,12 @@
 {
-    "name": "discord-bot",
+    "name": "Goldie-Bot",
     "version": "1.0.0",
     "description": "A Discord bot with All in One Commands and MongoDB integration.",
     "main": "index.js",
     "scripts": {
         "start": "node index.js"
     },
-    "author": "Friday",
+    "author": "Prathmesh",
     "license": "ISC",
     "dependencies": {
         "discord-html-transcripts": "^3.1.0",
